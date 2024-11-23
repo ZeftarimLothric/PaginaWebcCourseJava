@@ -22,6 +22,7 @@ export default function Exercises() {
     try {
       const { data, error } = await supabase.rpc("update_user_exercise", {
         p_user_id: user.id,
+        p_name_user: user.user_metadata.full_name, // Add this line to include the user's name
         p_exercise_id: exerciseId,
         p_completed: completed,
       });
@@ -41,6 +42,7 @@ export default function Exercises() {
 *********`;
     return output.trim() === expectedOutput.trim();
   };
+
   const verifyHolaMundo = (output) => {
     const expectedOutput = `Hola mundo!`;
     return output.trim() === expectedOutput.trim();
@@ -112,12 +114,8 @@ export default function Exercises() {
           <div>
             <div className="docText">
               <p className="mb-4">
-                Escribe un programa en Java que imprima una pirámide de
-                asteriscos. La pirámide debe tener un número específico de
-                filas, que podrás configurar manualmente con una variable. Cada
-                fila de la pirámide debe contener un número impar de asteriscos,
-                centrados horizontalmente. Por ejemplo, si el usuario ingresa 5,
-                la salida del programa debería ser la siguiente:
+                Escribe un programa en Java que imprima "Hola mundo!" en la
+                consola.
               </p>
               <pre className="bg-gray-100 text-gray-800 p-4 rounded-md mb-4">
                 {"Hola mundo!"}
@@ -125,13 +123,13 @@ export default function Exercises() {
             </div>
             <div className="mt-4">
               <CodeEditorEjercisios
-                initialCode={`public class Piramide {
+                initialCode={`public class HolaMundo {
     public static void main(String[] args) {
         // Implementa tu código aquí
     }
 }`}
                 readOnly={false}
-                solutionCode={`public class Piramide {
+                solutionCode={`public class HolaMundo {
     public static void main(String[] args) {
         System.out.println("Hola mundo!");
     }

@@ -110,7 +110,10 @@ export function UserDropdown({ user }) {
 
           <div className="dropdown-footer gap-2">
             <button
-              onClick={handleSignOut}
+              onClick={() => {
+                handleNavigation("/");
+                handleSignOut();
+              }}
               className="btn btn-error btn-soft btn-block rounded-full"
             >
               <LogOut className="w-4 h-4" />
