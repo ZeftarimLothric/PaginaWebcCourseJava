@@ -53,7 +53,7 @@ src/
 ## Tecnologías Utilizadas
 
 - React
-- TypeScript
+- JavaScript
 - Tailwind CSS
 - Vite
 - Lucide React (iconos)
